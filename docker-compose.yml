@@ -62,7 +62,8 @@ services:
         apk add --no-cache git &&
         rm -rf /var/discordtts/emoji-ja &&
         git clone https://github.com/yagays/emoji-ja /var/discordtts/emoji-ja &&
-        mkdir -p /var/discordtts/db
+        mkdir -p /var/discordtts/db &&
+        echo '{"voice_settings":{},"dictionary":{}}' > /var/discordtts/db/db.json
       "
 
     volumes:
