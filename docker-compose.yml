@@ -3,6 +3,7 @@ version: '3.9'
 services:
   discordtts:
     image: ghcr.io/r2iz/discord-tts:latest@sha256:21a92161cbcf54c5a4287ca7986c44cd187528debefead71d8cffcdf268a6227
+    platform: linux/amd64
 
     hostname: discordtts
     container_name: discordtts__discordtts
@@ -34,6 +35,7 @@ services:
 
   voicevox:
     image: voicevox/voicevox_engine:cpu-latest@sha256:d1dbdd76ff51664e2076dbf474350ed051b909ae60e41176d3269519a25f7c2d
+    platform: linux/amd64
 
     hostname: voicevox
     container_name: discordtts__voicevox
@@ -52,12 +54,19 @@ services:
           memory: 512m
 
   emoji-setup:
-    image: alpine:latest
+    image: alpine:3.19
+    platform: linux/arm64
     container_name: discordtts__emoji-setup
 
     restart: "no"
 
-    command: sh -c "apk add --no-cache git && rm -rf /var/discordtts/emoji-ja && git clone https://github.com/yagays/emoji-ja /var/discordtts/emoji-ja && mkdir -p /var/discordtts/db"
+    command: >
+      sh -c "
+        apk add --no-cache git &&
+        rm -rf /var/discordtts/emoji-ja &&
+        git clone https://github.com/yagays/emoji-ja /var/discordtts/emoji-ja &&
+        mkdir -p /var/discordtts/db
+      "
 
     volumes:
       - type: volume
