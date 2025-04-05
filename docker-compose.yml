@@ -54,8 +54,8 @@ services:
           memory: 512m
 
   emoji-setup:
-    image: alpine:3.19
-    platform: linux/arm64
+    image: alpine:3.21.3
+    platform: linux/arm64/v8
     container_name: discordtts__emoji-setup
 
     restart: "no"
