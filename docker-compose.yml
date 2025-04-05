@@ -34,7 +34,7 @@ services:
           memory: 512m
 
   voicevox:
-    image: voicevox/voicevox_engine:cpu-latest@sha256:d1dbdd76ff51664e2076dbf474350ed051b909ae60e41176d3269519a25f7c2d
+    image: voicevox/voicevox_engine:cpu-latest
     platform: linux/arm64
 
     hostname: voicevox
@@ -54,7 +54,7 @@ services:
           memory: 512m
 
   emoji-setup:
-    image: arm64v8/alpine:latest
+    image: alpine:latest
     container_name: discordtts__emoji-setup
 
     restart: "no"
