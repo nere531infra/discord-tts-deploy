@@ -35,7 +35,7 @@ services:
 
   voicevox:
     image: voicevox/voicevox_engine:cpu-latest@sha256:d1dbdd76ff51664e2076dbf474350ed051b909ae60e41176d3269519a25f7c2d
-    platform: linux/amd64
+    platform: linux/arm64
 
     hostname: voicevox
     container_name: discordtts__voicevox
