@@ -51,26 +51,26 @@ services:
         limits:
           memory: 512m
 
-    emoji-setup:
-      image: alpine:latest
-      container_name: discordtts__emoji-setup
+  emoji-setup:
+    image: alpine:latest
+    container_name: discordtts__emoji-setup
 
-      restart: "no"
+    restart: "no"
 
-      command: sh -c "apk add --no-cache git && rm -rf /var/discordtts/emoji-ja && git clone https://github.com/yagays/emoji-ja /var/discordtts/emoji-ja && mkdir -p /var/discordtts/db"
+    command: sh -c "apk add --no-cache git && rm -rf /var/discordtts/emoji-ja && git clone https://github.com/yagays/emoji-ja /var/discordtts/emoji-ja && mkdir -p /var/discordtts/db"
 
-      volumes:
-        - type: volume
-          source: data
-          target: /var/discordtts/
+    volumes:
+      - type: volume
+        source: data
+        target: /var/discordtts/
 
-      networks:
-        - discordtts_default
+    networks:
+      - discordtts_default
 
-      deploy:
-        resources:
-          limits:
-            memory: 64m
+    deploy:
+      resources:
+        limits:
+          memory: 64m
 
 volumes:
   data:
