@@ -2,8 +2,7 @@ version: '3.9'
 
 services:
   discordtts:
-    image: ghcr.io/r2iz/discord-tts:latest@sha256:21a92161cbcf54c5a4287ca7986c44cd187528debefead71d8cffcdf268a6227
-    platform: linux/arm64
+    image: ghcr.io/r2iz/discord-tts:latest@sha256:b69ebaa1119c878ec51f264ab5f36631f26346e53bf4c0c01544de308c7d762e
 
     hostname: discordtts
     container_name: discordtts__discordtts
